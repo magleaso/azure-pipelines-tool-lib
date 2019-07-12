@@ -231,7 +231,7 @@ export async function downloadTool(url: string, fileName?: string, handlers?: if
             let retryCount: number = 1;
             const maxRetries: number = 3;
             let response: httpm.HttpClientResponse = await http.get(url);
-            
+
             while(retryCount < maxRetries && statusCodesToRetry.indexOf(response.message.statusCode) > -1) {
                 tl.debug(`Download attempt "${retryCount}" of "${maxRetries}" failed with status code "${response.message.statusCode}".`);
                 retryCount += 1;
